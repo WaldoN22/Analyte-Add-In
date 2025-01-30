@@ -37,6 +37,19 @@ This guide provides step-by-step instructions on how to use the **Outlook Email 
 
 To get started, you will need to add the plugin to Outlook. Follow the instructions for the appropriate version below.
 
+## Run the sample
+
+1. Download or clone the [Office Add-ins samples repository](https://github.com/OfficeDev/Office-Add-in-samples).
+2. Open Visual Studio 2022 and open the **Office-Add-in-samples\Samples\blazor-add-in\outlook-blazor-add-in\outlook-blazor-add-in.sln** solution.
+3. In **Solution Explorer** select the **outlook-blazor-sideloader** project. Then display the project properties (F4).
+4. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
+   ![Start Action](./images/StartAction.png)
+5. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this sample.
+   In case this was not set before running you might also see this dialog:
+   ![Start Action](./images/Connect.png)
+6. To start the solution, choose **Debug** > **Start Debugging** or press **F5**.
+7. When Outlook opens, choose **Home** > **Show Taskpane**.
+
 ## How to Add the Add-In to Outlook
 
 ### For Outlook Desktop (Windows):
