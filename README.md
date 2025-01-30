@@ -64,13 +64,34 @@ The objective of this project is to develop an Outlook plugin that adds a button
 
 This project is a **Blazor-based Office Add-in** for Outlook, named `outlook-blazor-add-in`. It integrates a Blazor WebAssembly app with an Office Add-in to extend Outlook's functionality. Below is a breakdown of how the project works and how the files interact.
 
-## Getting Started
+## Manually Adding the Plugin to Outlook
 
-Here is the link to manage MS Add-ins in the new Outlook:
+### For Outlook Desktop (Windows)
+1. **Open Outlook**: Launch the Outlook application on your computer.
+2. **Go to File**: In the top left corner, click on the "File" tab.
+3. **Manage Add-ins**: Under the "Manage Add-ins" section, click on "Manage Add-ins" or "Options," which will open the Outlook Web App to manage add-ins.
+4. **Add-in Settings**: You'll be directed to the "Add-ins for Outlook" page (sometimes it's called "Manage Add-ins").
+5. **Add Custom Add-in**:
+   - Click on the **+** icon at the top to add a new add-in.
+   - Choose **Add from file** (this allows you to add an add-in file, such as an .xml manifest file).
+6. **Select the Add-in**: Locate the manifest file of your add-in on your computer and select it.
+7. **Confirm the Add-in**: Once the add-in is added, it will appear in your list of installed add-ins. You can enable or disable it as needed.
+
+** Here is the link to manage MS Add-ins in the new Outlook:**
 
 [https://aka.ms/olksideload](https://aka.ms/olksideload)
 
 This link was copied from the help menu after searching for "Add-ins", selecting "Use add-ins in Outlook", and scrolling to the link.
+
+### For Outlook Web (Outlook on the Web)
+1. **Go to Settings**: Open Outlook Web and click on the gear icon in the top right corner to open Settings.
+2. **View All Outlook Settings**: At the bottom of the settings panel, click on "View all Outlook settings."
+3. **Mail > Customize Actions**: In the settings window, go to Mail > Customize Actions.
+4. **Manage Add-ins**: Scroll to the Add-ins section and click on "Manage add-ins."
+5. **Add Custom Add-in**: Click the **+** sign at the top and choose **Add from file**.
+6. **Select Manifest File**: Find the manifest file on your computer, select it, and confirm.
+
+
 
 ## Explore the Project:
 
