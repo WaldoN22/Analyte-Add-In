@@ -12,210 +12,93 @@ extensions:
   technologies: 
     - Add-ins
   createdDate: '01/30/2025 11:13:00 PM'
-description: 'Create an Outlook add-in that counts the number of emails received on the current day.'
+description: 'Guide to using an Outlook add-in that counts the number of emails received on the current day.'
 ---
 
-# Outlook Email Count Add-In
+# Outlook Email Count Add-In - User Guide
 
-## Project Scope: Outlook Plugin for Daily Email Count
+## Overview
+This guide provides step-by-step instructions on how to use the **Outlook Email Count Add-In**, which counts the number of emails you have received on the current day. The add-in adds a button to your Outlook interface, allowing you to easily track your email count.
 
-### Project Overview
-The objective of this project is to develop an Outlook plugin that adds a button to the Outlook interface. When clicked, this button will display the total number of emails received by the user on the current day.
-
-### Objectives
-- **Develop an Outlook plugin compatible with the latest versions of Outlook.**
-- **Integrate a user-friendly button into the Outlook toolbar.**
-- **Implement functionality to count and display the number of emails received in a day.**
-
-### Deliverables
-1. **Outlook Plugin**: A fully functional plugin that can be installed and used within Outlook.
-2. **User Interface**: A button added to the Outlook toolbar.
-3. **Email Counting Functionality**: Code to count the number of emails received in the current day.
-4. **Documentation**: Detailed documentation covering installation, usage, and troubleshooting.
-
-### Technical Requirements
-- **Programming Language**: C# and Blazor
-- **Development Environment**: Visual Studio.
-- **Outlook API**: Utilize the Outlook REST API or Microsoft Graph API to access email data.
-
-### Resources
-- [GitHub - Office Add-ins Samples](https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/outlook-blazor-add-in)
-
-### Success Criteria
-- The plugin is successfully installed and used by the target audience.
-- The button accurately counts and displays the number of emails received in a day.
-- Positive feedback from users regarding the plugin's functionality and ease of use.
-
-## Features
-
+### Key Features:
 - Count emails received on the current day.
-- Display email count in a user-friendly interface within Outlook.
-- Interact with Microsoft Graph API or Outlook REST API to fetch email data.
-
-## Applies to
-
-- Outlook on the web, Windows, and Mac.
+- Display email count within the Outlook interface.
+- Integrate with Microsoft Graph API or Outlook REST API to fetch email data.
 
 ## Prerequisites
 
-- Microsoft 365 - Get a [free developer sandbox](https://developer.microsoft.com/microsoft-365/dev-program#Subscription) that provides a renewable 90-day Microsoft 365 E5 developer subscription.
+- **Microsoft 365 Account**: You'll need a Microsoft 365 subscription to use the add-in.
+- **Outlook (Desktop or Web)**: This add-in is compatible with both Outlook Desktop (Windows) and Outlook Web (Outlook on the Web).
 
-- # Outlook Blazor Add-In
+To get started, you will need to add the plugin to Outlook. Follow the instructions for the appropriate version below.
 
-This project is a **Blazor-based Office Add-in** for Outlook, named `outlook-blazor-add-in`. It integrates a Blazor WebAssembly app with an Office Add-in to extend Outlook's functionality. Below is a breakdown of how the project works and how the files interact.
+## How to Add the Add-In to Outlook
 
-## Manually Adding the Plugin to Outlook
-
-### For Outlook Desktop (Windows)
+### For Outlook Desktop (Windows):
 1. **Open Outlook**: Launch the Outlook application on your computer.
 2. **Go to File**: In the top left corner, click on the "File" tab.
-3. **Manage Add-ins**: Under the "Manage Add-ins" section, click on "Manage Add-ins" or "Options," which will open the Outlook Web App to manage add-ins.
-4. **Add-in Settings**: You'll be directed to the "Add-ins for Outlook" page (sometimes it's called "Manage Add-ins").
-5. **Add Custom Add-in**:
-   - Click on the **+** icon at the top to add a new add-in.
-   - Choose **Add from file** (this allows you to add an add-in file, such as an .xml manifest file).
-6. **Select the Add-in**: Locate the manifest file of your add-in on your computer and select it.
-7. **Confirm the Add-in**: Once the add-in is added, it will appear in your list of installed add-ins. You can enable or disable it as needed.
+3. **Manage Add-ins**: Under the "Manage Add-ins" section, click on "Manage Add-ins" or "Options" to open the Outlook Web App.
+4. **Add Custom Add-in**:
+   - Click the **+** icon at the top to add a new add-in.
+   - Select **Add from file** (this allows you to add an add-in file such as an .xml manifest file).
+5. **Select the Add-in**: Locate and select the manifest file for the add-in on your computer.
+6. **Confirm**: Once added, the add-in will appear in your list of installed add-ins. You can enable or disable it as needed.
 
-** Here is the link to manage MS Add-ins in the new Outlook:**
+For additional help with managing add-ins, refer to [Microsoft's link for Outlook add-ins](https://aka.ms/olksideload).
 
-[https://aka.ms/olksideload](https://aka.ms/olksideload)
-
-This link was copied from the help menu after searching for "Add-ins", selecting "Use add-ins in Outlook", and scrolling to the link.
-
-### For Outlook Web (Outlook on the Web)
+### For Outlook Web (Outlook on the Web):
 1. **Go to Settings**: Open Outlook Web and click on the gear icon in the top right corner to open Settings.
 2. **View All Outlook Settings**: At the bottom of the settings panel, click on "View all Outlook settings."
 3. **Mail > Customize Actions**: In the settings window, go to Mail > Customize Actions.
 4. **Manage Add-ins**: Scroll to the Add-ins section and click on "Manage add-ins."
-5. **Add Custom Add-in**: Click the **+** sign at the top and choose **Add from file**.
-6. **Select Manifest File**: Find the manifest file on your computer, select it, and confirm.
-
-
-
-## Explore the Project:
-
-- The **`./manifest.json`** or **`./manifest.xml`** file in the root directory defines the settings and capabilities of the add-in.
-- The **`./src/taskpane/taskpane.html`** file contains the HTML markup for the task pane.
-- The **`./src/taskpane/taskpane.css`** file contains the CSS applied to content in the task pane.
-- The **`./src/taskpane/taskpane.js`** file includes the Office JavaScript API code that facilitates interaction between the task pane and Outlook.
+5. **Add Custom Add-in**:
+   - Click the **+** sign at the top and choose **Add from file**.
+   - Select the manifest file on your computer, then confirm.
 
 ## Solution Overview
 
-The solution contains two projects:
-1. **BlazorAddIn** (Blazor WebAssembly project):  
-   This is the main project where the Blazor components and logic for the add-in are implemented.
-2. **outlook-blazor-sideloader**:  
-   This project holds the manifest files used to deploy the Office Add-in to Outlook.
+The **Outlook Email Count Add-In** is developed using **Blazor WebAssembly** and **C#**. It provides a user-friendly interface that allows users to view the number of emails received on the current day. It integrates with Outlook using Microsoft Graph API or the Outlook REST API.
 
-## BlazorAddIn Project Breakdown
+## Key Files:
+- **Manifest File**: The **manifest.json** or **manifest.xml** defines the settings and capabilities of the add-in.
+- **Task Pane Files**: These files contain HTML, CSS, and JavaScript that make up the interface and interaction with Outlook.
+  - **taskpane.html**: Defines the structure of the task pane.
+  - **taskpane.css**: Styles the task pane's content.
+  - **taskpane.js**: Contains JavaScript code that uses the Office JavaScript API to interact with Outlook.
 
-### `wwwroot` Folder
-Contains static assets served by the Blazor WebAssembly app:
-- **CSS**: `app.css` styles the application.
-- **Images**: Assets like `favicon.ico` and `icon-192.png` are typically used for branding the add-in.
-- **`BlazorAddIn.lib.module.js`**: A JavaScript file that bridges JavaScript functions with Blazor, essential for interacting with Outlook APIs (e.g., Office.js).
-
-### `Model` Folder
-- **`MailRead.cs`** and its namespace **`MailRead`**:
-  - Defines data structures or models related to email data (e.g., sender, subject, body, etc.).
-  - These models may interact with Outlook data fetched using Office.js or other APIs.
-
-### `Pages` Folder
-- **`Index.razor`** and **`Index.razor.cs`**:
-  - The primary page/component of the add-in.
-  - **`Index.razor.cs`** contains C# code-behind logic for **`Index.razor`**, separating UI and business logic.
-  - **`Index.razor.js`**: A JavaScript file possibly used for direct interaction with Outlook web add-in's JavaScript APIs or custom functionality.
-
-### `Shared` Folder
-- Common UI components shared across the application:
-  - **`MainLayout.razor`**: Main layout of the app, defining the structure of pages.
-  - **`NavMenu.razor`**: Navigation menu component, likely used for in-app navigation.
-
-### `Program.cs`
-- Entry point for the Blazor WebAssembly app:
-  - Configures services and initializes the app.
-  - Sets up the app to run within the context of an Office Add-in.
-
-## outlook-blazor-sideloader Project
-
-This project contains the manifest files for deploying and sideloading the Office Add-in in Outlook.
-
-- **Manifest Files:**
-  - **`outlook-blazor-sideloaderManifest.xml`**: Contains metadata for the Office Add-in, including:
-    - Add-in's ID, name, description.
-    - URLs for the add-in's pages.
-    - Permissions and Outlook-specific configurations (e.g., whether it works in Mail, Calendar, etc.).
-  - **`outlook-blazor-sideloader.xml`**: Likely another configuration file for sideloading or testing the add-in locally.
-
-## How It Works Together
-
-### Development Flow:
-- The Blazor app (**`BlazorAddIn`**) provides UI and functionality using Razor components and Blazor's event-handling.
-- Static files in **`wwwroot`** and JavaScript modules enable integration with Outlook via Office.js.
-
-### Office Integration:
-- The add-in manifest specifies entry points (e.g., **`Index.razor`**) and necessary permissions for interacting with Outlook data.
-- JavaScript files like **`BlazorAddIn.lib.module.js`** act as a bridge between the Blazor app and Outlook APIs.
-
-### Deployment:
-- The manifest files in **`outlook-blazor-sideloader`** are used to deploy the add-in to Outlook, enabling sideloading during development or production use.
-
-## Interaction Between Files
-- Razor Components (`.razor`) define UI and call backend logic in `.razor.cs` files or services.
-- Static files in **`wwwroot`** (like JavaScript and CSS) enhance interactivity and styling.
-- Models (**`MailRead.cs`**) structure data retrieved from Outlook.
-- The manifest (**`.xml`**) integrates the Blazor app as an Office Add-in in Outlook.
-
----
-
-## Troubleshooting Steps
-
-### 1. **Ensure Task Pane is Enabled**
-- Open Outlook → File → Options → Add-ins.
-- Check "Inactive Add-ins" or "Disabled Add-ins."
-- If it's disabled, enable it.
-
-### 2. **Restart Outlook & Clear Cache**
-- Close Outlook.
-- Run the following command in Command Prompt (as Administrator) to clear cache:
-  ```powershell
-  taskkill /IM outlook.exe /F
-  ipconfig /flushdns
+### Example Folder Structure:
+./manifest.json ./src/taskpane/taskpane.html ./src/taskpane/taskpane.css ./src/taskpane/taskpane.js
 
 
-## Run the sample
 
-1. Download or clone the [Office Add-ins samples repository](https://github.com/OfficeDev/Office-Add-in-samples).
-1. Open Visual Studio 2022 and open the **Office-Add-in-samples\Samples\outlook-email-count-add-in\outlook-email-count-add-in.sln** solution.
-1. In **Solution Explorer**, select the **outlook-email-count-sideloader** project. Then display the project properties (F4).
-1. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
-   ![Start Action](./images/StartAction.png)
-1. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this sample.
-   In case this was not set before running, you might also see this dialog:
-   ![Start Action](./images/Connect.png)
-1. To start the solution, choose **Debug** > **Start Debugging** or press **F5**.
-1. When Outlook opens, choose **Home** > **Show Taskpane**.
+## Adding the Add-In Manually
 
-The task pane will display the email count for the current day.
+### Step 1: Sideload the Add-In
+If you're developing or testing the add-in locally, you can sideload it by following these steps:
 
-## Understand the Add-In's Functionality
+1. **Download or Clone the Repository**: Clone the repository from GitHub and open it in Visual Studio.
+2. **Set Start Action**:
+   - In **Solution Explorer**, select the **outlook-email-count-sideloader** project.
+   - Set the **Start Action** to **Office Desktop Client**.
+3. **Set Email Address**:
+   - In the **Properties** window, set the email address for the account you want to use.
+4. **Debug and Start**:
+   - Press **F5** to start debugging, and Outlook will open with the add-in ready to use.
+5. **Show Task Pane**: In Outlook, go to the **Home** tab and select **Show Taskpane** to view the email count.
 
-This Outlook add-in is a web application that adds functionality to Outlook, allowing users to count and display the number of emails received on the current day. It leverages Microsoft Graph API or Outlook REST API to retrieve email data, and Blazor WebAssembly to build the user interface.
+### Troubleshooting
+If you encounter any issues:
+1. **Ensure Task Pane is Enabled**: Go to **File > Options > Add-ins** in Outlook and enable the add-in if it's disabled.
+2. **Clear Cache**: Close Outlook and run the following command in Command Prompt (as Administrator) to clear the cache:
+   ```powershell
+   taskkill /IM outlook.exe /F
+   ipconfig /flushdns
 
-## Key parts of this sample
 
-The add-in is built using Blazor WebAssembly, and it utilizes C# and JavaScript interop to interact with the Outlook APIs.
+Additional Resources
 
-### Blazor pages
-
-The **Pages** folder contains the Blazor pages, such as **Index.razor**. Each **.razor** page also has two code-behind pages, for example, **Index.razor.cs** and **Index.razor.js**. The C# file sets up the interop connection with the JavaScript file.
-
-```csharp
-protected override async Task OnAfterRenderAsync(bool firstRender)
-{
-  if (firstRender)
-  {
-    JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
-  }
-}
+1. https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/outlook-blazor-add-in
+2. https://youtu.be/pabal0sqzrM?si=y60j0D1WuQ1uZTzx
+3. https://learn.microsoft.com/en-gb/office/dev/add-ins/overview/explore-with-script-lab
+4. https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart-vs
+5. https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-code-samples
