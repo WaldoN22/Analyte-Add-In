@@ -1,0 +1,40 @@
+﻿@* Copyright (c) Maarten van Stam and Eric Legault. All rights reserved. Licensed under the MIT License. *@
+@page "/"
+@inject IJSRuntime JS
+
+<section class="samples ms-font-m" style="padding: 20px;">
+    <div class="row">
+        <h2>Welcome to the Email Count Add-In</h2>
+        <p>This add-in helps you keep track of the number of emails received on the current day in your Outlook account. It provides a quick overview of your email activity directly within the Outlook interface.</p>
+    </div>
+
+    @if (CountEmailData != null)
+    {
+        <div class="row">
+            <h3>Current Email Count</h3>
+        </div>
+        <dl class="row">
+            <dt class="col-sm-3"><strong>Emails Received:</strong></dt>
+            <dd class="col-sm-9">@CountEmailData?.Count</dd>
+
+        </dl>
+    }
+    @if (UnEmailData != null)
+    {
+        <div class="row">
+            <h3>Current Unread Email Count</h3>
+        </div>
+        <dl class="row">
+
+            <dt class="col-sm-3"><strong>Unread Emails:</strong></dt>
+            <dd class="col-sm-9">@UnEmailData?.UnCount</dd>
+        </dl>
+    }
+    else
+    {
+        <div class="row">
+            <h3>Unable to retrieve email data</h3>
+            <p>There was an issue fetching the email and attachment count.</p>
+        </div>
+    }
+</section>
