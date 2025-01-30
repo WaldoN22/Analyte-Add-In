@@ -43,7 +43,7 @@ To get started, you will need to add the plugin to Outlook. Follow the instructi
 2. Open Visual Studio 2022 and open the **Office-Add-in-samples\Samples\blazor-add-in\outlook-blazor-add-in\outlook-blazor-add-in.sln** solution.
 3. In **Solution Explorer** select the **outlook-blazor-sideloader** project. Then display the project properties (F4).
 4. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
-   ![Start Action](./images/StartAction.png)
+   ![Start Action](./images/Setup.png)
 5. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this sample.
    In case this was not set before running you might also see this dialog:
    ![Start Action](./images/Connect.png)
