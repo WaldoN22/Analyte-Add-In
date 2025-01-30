@@ -1,158 +1,153 @@
 ---
 page_type: sample
-urlFragment: outlook-blazor-add-in
+urlFragment: outlook-email-count-add-in
 products:
   - office
   - office-outlook
 languages:
-  - javascript
   - C#
+  - Blazor
 extensions:
   contentType: samples
   technologies: 
     - Add-ins
-  createdDate: '08/25/2022 11:13:00 PM'
-description: 'Create a Blazor Webassembly Outlook add-in showcasing some samples.'
+  createdDate: '01/30/2025 11:13:00 PM'
+description: 'Guide to using an Outlook add-in that counts the number of emails received on the current day.'
 ---
 
-# Create a Blazor Webassembly Outlook add-in
+# Outlook Email Count Add-In - User Guide
 
-This sample shows how to build an Outlook add-in using .NET Blazor technologies. Blazor Webassembly allows you to build Office Add-ins using .NET, C#, and JavaScript to interact with the Office JavaScript API. The add-in uses JavaScript to work with the document and Office JS APIs, but you build the user interface and all other non-Office interactions in C# and .NET Core Blazor technologies.
+## Overview
+This guide provides step-by-step instructions on how to use the **Outlook Email Count Add-In**, which counts the number of emails you have received on the current day and the number of unread emails in mailbox. The add-in adds a button to your Outlook interface, allowing you to easily track your email count.
 
-Working with Blazor Webassembly in the framework of Office, you can:
-- Build cross-platform Office Add-ins using Blazor, C#, and JavaScript Interop
-- Initialize the Office JavaScript API library in Blazor context
-- Interact with Outlook to work with email and calendar items
-
-## Applies to
-
-- Outlook on the web, Windows, and Mac.
+### Key Features:
+- Count emails received on the current day.
+- Display email count within the Outlook interface.
 
 ## Prerequisites
 
-- Microsoft 365 - Get a [free developer sandbox](https://developer.microsoft.com/microsoft-365/dev-program#Subscription) that provides a renewable 90-day Microsoft 365 E5 developer subscription.
+- **Microsoft 365 Account**: You'll need a Microsoft 365 subscription to use the add-in.
+- **Outlook (Desktop or Web)**: This add-in is compatible with both Outlook Desktop (Windows) and Outlook Web (Outlook on the Web).
+
+  ### Technical Requirements
+- **Programming Language**: C# and Blazor
+- **Development Environment**: Visual Studio.
+- **Outlook API**: Outlook REST API and EWS Requests.
+
+To get started, you will need to add the plugin to Outlook. Follow the instructions for the appropriate version below.
 
 ## Run the sample
 
-1. Download or clone the [Office Add-ins samples repository](https://github.com/OfficeDev/Office-Add-in-samples).
-1. Open Visual Studio 2022 and open the **Office-Add-in-samples\Samples\blazor-add-in\outlook-blazor-add-in\outlook-blazor-add-in.sln** solution.
-1. In **Solution Explorer** select the **outlook-blazor-sideloader** project. Then display the project properties (F4).
-1. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
-   ![Start Action](./images/StartAction.png)
-1. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this sample.
+1. Download or clone the (https://github.com/WaldoN22/Analyte-Add-In.git)).
+2. Open Visual Studio 2022 and open the **outlook-blazor-add-in.sln**.
+3. In **Solution Explorer** select the **outlook-blazor-sideloader** project. Then display the project properties (F4).
+4. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
+   ![Start Action](./images/Setup.png)
+   
+5. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this add-in and also switch **Use multi-factor auth** to **True**.
    In case this was not set before running you might also see this dialog:
    ![Start Action](./images/Connect.png)
-1. To start the solution, choose **Debug** > **Start Debugging** or press **F5**.
-1. When Outlook opens, choose **Home** > **Show Taskpane**.
+6. To start the solution, choose **Debug** > **Start Debugging** or press **F5**.
+7. When Outlook opens, choose **Home** > **Show Taskpane**.
 
-Next, try out the controls. The task pane will display information about the currently selected email item.
+## How to Manually Add the Add-In to Outlook
 
-## Understand an Office Add-in in Blazor Context
+### For Outlook Desktop (Windows):
+1. **Open Outlook**: Launch the Outlook application on your computer.
+2. **Go to File**: In the top left corner, click on the "File" tab.
+3. **Manage Add-ins**: Under the "Manage Add-ins" section, click on "Manage Add-ins" or "Options" to open the Outlook Web App.
+4. **Add Custom Add-in**:
+   - Click the **+** icon at the top to add a new add-in.
+   - Select **Add from file** (this allows you to add an add-in file such as an .xml manifest file).
+5. **Select the Add-in**: Locate and select the manifest file for the add-in on your computer.
+6. **Confirm**: Once added, the add-in will appear in your list of installed add-ins. You can enable or disable it as needed.
 
-An Office Add-in is a web application that extends Office with additional functionality for the user. For example, Outlook add-ins can add ribbon buttons, and provide a task pane during compose or read modes. Because an Office Add-in is a web application, you must provide a web server to host the files.
-Building the Office Add-in as a Blazor Webassembly allows you to build a .NET Core compliant website that interacts with the Office JS APIs. If your background is with VBA, VSTO, or COM add-in development, you may find that building Office Add-ins using Blazor Webassembly is a familiar development technique.
+For additional help with managing add-ins, refer to [Microsoft's link for Outlook add-ins](https://aka.ms/olksideload).
 
-## Key parts of this sample
+### For Outlook Web (Outlook on the Web):
+1. **Go to Settings**: Open Outlook Web and click on the gear icon in the top right corner to open Settings.
+2. **View All Outlook Settings**: At the bottom of the settings panel, click on "View all Outlook settings."
+3. **Mail > Customize Actions**: In the settings window, go to Mail > Customize Actions.
+4. **Manage Add-ins**: Scroll to the Add-ins section and click on "Manage add-ins."
+5. **Add Custom Add-in**:
+   - Click the **+** sign at the top and choose **Add from file**.
+   - Select the manifest file on your computer, then confirm.
 
-This sample uses a Blazor Webassembly file that runs cross-platform in various browsers supporting WASM (Webassembly). The Blazor WASM App demonstrates some basic Outlook functions to read attachments in email items.
+## BlazorAddIn Project Breakdown
 
-The purpose of this sample is to show you how to build and interact with the Blazor, C# and JavaScript Interop options. If you're looking for more examples of interacting with Outlook and Office JS APIs, see [Script Lab](https://aka.ms/getscriptlab).
+### `wwwroot` Folder
+Contains static assets served by the Blazor WebAssembly app:
+- **CSS**: `app.css` styles the application.
+- **Images**: Assets like `favicon.ico` and `icon-192.png` are typically used for branding the add-in.
+- **`BlazorAddIn.lib.module.js`**: A JavaScript file that bridges JavaScript functions with Blazor, essential for interacting with Outlook APIs (e.g., Office.js).
 
-### Blazor pages
+### `Model` Folder
+- **`MailRead.cs`** and its namespace **`MailRead`**:
+  - Defines data structures or models related to email data (e.g., sender, subject, body, etc.).
+  - These models may interact with Outlook data fetched using Office.js or other APIs.
 
-The **Pages** folder contains the Blazor pages, such as **Index.razor**. Each **.razor** page also contain two code-behind pages, for example, named **Index.razor.cs** and **Index.razor.js**. The C# file first establishes an interop connection with the JavaScript file.
+### `Pages` Folder
+- **`Index.razor`** and **`Index.razor.cs`**:
+  - The primary page/component of the add-in.
+  - **`Index.razor.cs`** contains C# code-behind logic for **`Index.razor`**, separating UI and business logic.
+  - **`Index.razor.js`**: A JavaScript file possibly used for direct interaction with Outlook web add-in's JavaScript APIs or custom functionality.
 
-```csharp
-protected override async Task OnAfterRenderAsync(bool firstRender)
-{
-  if (firstRender)
-  {
-    JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
-  }
-}
-```
+### `Shared` Folder
+- Common UI components shared across the application:
+  - **`MainLayout.razor`**: Main layout of the app, defining the structure of pages.
+  - **`NavMenu.razor`**: Navigation menu component, likely used for in-app navigation.
 
-For any events that need to interact with the Outlook mail item, the C# file calls through interop to the JavaScript file.
+### `Program.cs`
+- Entry point for the Blazor WebAssembly app:
+  - Configures services and initializes the app.
+  - Sets up the app to run within the context of an Office Add-in.
 
-```csharp
-private async Task<MailRead?> GetEmailData()
-{
-    MailRead? mailreaditem = await JSModule.InvokeAsync<MailRead>("getEmailData");
+## outlook-blazor-sideloader Project
 
-    Console.WriteLine("Subject C#: ");
-    Console.WriteLine(mailreaditem?.Subject);
+This project contains the manifest files for deploying and sideloading the Office Add-in in Outlook.
 
-    return mailreaditem;
-}
-```
+- **Manifest Files:**
+  - **`outlook-blazor-sideloaderManifest.xml`**: Contains metadata for the Office Add-in, including:
+    - Add-in's ID, name, description.
+    - URLs for the add-in's pages.
+    - Permissions and Outlook-specific configurations (e.g., whether it works in Mail, Calendar, etc.).
+  - **`outlook-blazor-sideloader.xml`**: Likely another configuration file for sideloading or testing the add-in locally.
 
-The JavaScript runs the code to interact with the item and returns (see full code in the sample).
+## How It Works Together
 
-```javascript
-export async function getEmailData() {
+### Development Flow:
+- The Blazor app (**`BlazorAddIn`**) provides UI and functionality using Razor components and Blazor's event-handling.
+- Static files in **`wwwroot`** and JavaScript modules enable integration with Outlook via Office.js.
 
-    try {
-        console.log(`Reading mailbox item`);
-        const item = Office.context.mailbox.item;
-        ...
-    } catch (err) {
-        console.error(`Index.razor.js(getEmailData) Catch Exception: ${err}`);
-        subject = `${err}`;
-        return { Subject: subject };
-    }
-}
-```
+### Office Integration:
+- The add-in manifest specifies entry points (e.g., **`Index.razor`**) and necessary permissions for interacting with Outlook data.
+- JavaScript files like **`BlazorAddIn.lib.module.js`** act as a bridge between the Blazor app and Outlook APIs.
 
-The fundamental pattern includes the following steps.
+### Deployment:
+- The manifest files in **`outlook-blazor-sideloader`** are used to deploy the add-in to Outlook, enabling sideloading during development or production use.
 
-1. Call **JSRuntime.InvokeAsync** to set up the interop between C# and JavaScript.
-1. Use **JSModule.InvokeVoidAsync/JSModule.InvokeAsync** to call JavaScript functions from your C# code.
-1. Call Office JS APIs to interact with the Outlook items from JavaScript code.
+## Interaction Between Files
+- Razor Components (`.razor`) define UI and call backend logic in `.razor.cs` files or services.
+- Static files in **`wwwroot`** (like JavaScript and CSS) enhance interactivity and styling.
+- Models (**`MailRead.cs`**) structure data retrieved from Outlook.
+- The manifest (**`.xml`**) integrates the Blazor app as an Office Add-in in Outlook.
 
-## Debugging
+### Example Folder Structure:
+./manifest.json ./src/taskpane/taskpane.html ./src/taskpane/taskpane.css ./src/taskpane/taskpane.js
 
-This sample is configured to support debugging both JavaScript and C# files. New Blazor projects need the following file updates to support C# debugging.
+### Troubleshooting
+Here is a list of possible problems and how one can fix them:
+1. **Ensure Task Pane is Enabled**: Go to **File > Options > Add-ins** in Outlook and enable the add-in if it's disabled.
+2. **Clear Cache**: Close Outlook and run the following command in Command Prompt (as Administrator) to clear the cache:
+   ```powershell
+   taskkill /IM outlook.exe /F
+   ipconfig /flushdns
+3. If you encounter issues running this solution in the latest version of Outlook, try running it without the debugger.
 
-1. In the **launchSettings.json** file of the web project, make sure all instances of `launchBrowser` are set to `false`.
-1. In the **<projectName>.csproj.user** file of the add-in project, add the `<BlazorAppUrl>` and `<InspectUri>` elements as shown in the following example XML.
+**Additional Resources**
 
-**Note:** The port number in the following XML is 7126. You must change it to the port number specified in the **launchSettings.json** file for your web project.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <BlazorAppUrl>https://localhost:7126/</BlazorAppUrl>
-    <InspectUri>{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}</InspectUri>
-  </PropertyGroup>
-</Project>
-```
-
-## Questions and feedback
-
-- Did you experience any problems with the sample? [Create an issue](https://github.com/OfficeDev/Office-Add-in-samples/issues/new/choose) and we'll help you out.
-- We'd love to get your feedback about this sample. Go to our [Office samples survey](https://aka.ms/OfficeSamplesSurvey) to give feedback and suggest improvements.
-- For general questions about developing Office Add-ins, go to [Microsoft Q&A](https://learn.microsoft.com/answers/topics/office-js-dev.html) using the office-js-dev tag.
-
-## Solution
-
-| Solution                                | Authors                                                                 |
-| --------------------------------------- | ----------------------------------------------------------------------- |
-| Create a Blazor Webassembly Outlook add-in | [Maarten van Stam](https://mvp.microsoft.com/en-us/PublicProfile/33535) |
-|  | [Eric Legault](https://www.ericlegaultconsulting.com) |
-
-## Version history
-
-| Version | Date            | Comments           |
-| ------- | --------------- | ------------------ |
-| 1.0     | August 25, 2022 | Initial release    |
-| 2.0     | February 1, 2024     | Upgraded to .NET 8 |
-## Copyright
-
-Copyright(c) Maarten van Stam and Eric Legault. All rights reserved. Licensed under the MIT License.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-**Note**: The index.html file contains an image URL that tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project.
-
-<img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/blazor-add-in/outlook-blazor-add-in" />
+1. https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/outlook-blazor-add-in
+2. https://youtu.be/pabal0sqzrM?si=y60j0D1WuQ1uZTzx
+3. https://learn.microsoft.com/en-gb/office/dev/add-ins/overview/explore-with-script-lab
+4. https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart-vs
+5. https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-code-samples

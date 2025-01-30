@@ -1,4 +1,4 @@
-﻿/* Copyright(c) Maarten van Stam. All rights reserved. Licensed under the MIT License. */
+﻿/* Copyright(c) Waldo Nieman. All rights reserved. Licensed under the MIT License. */
 
 using BlazorAddIn.Model;
 using Microsoft.AspNetCore.Components;
@@ -42,30 +42,6 @@ namespace BlazorAddIn.Pages
 				Console.WriteLine($"firstRender: Index.razor.js imported");
 			}
 
-
-			//if (MailReadData == null)
-			//{
-			//	Console.WriteLine($"========================== Index.razor.cs (OnAfterRenderAsync): Calling GetEmailData()... ==========================");
-
-			//	// Fetch email data from JavaScript function
-			//	MailReadData = await GetEmailData();
-
-			//	// Decode Base64 data if available
-			//	if (string.IsNullOrEmpty(MailReadData?.AttachmentBase64Data) == false)
-			//	{
-			//		MailReadData.DecodeBase64();
-			//	}
-
-			//	if (MailReadData != null)
-			//	{
-			//		// Refresh UI with the updated MailReadData
-			//		StateHasChanged();
-			//	}
-
-
-
-			//	Console.WriteLine($"========================== Index.razor.cs (OnAfterRenderAsync): Returning from GetEmailData()... ==========================");
-			//}
 
 
 			if (CountEmailData == null)
@@ -116,20 +92,6 @@ namespace BlazorAddIn.Pages
 
 
 
-
-
-
-		//private async Task<MailRead?> GetEmailData()
-		//{
-		//	// Call JavaScript function to get email data
-		//	MailRead? mailreaditem = await JSModule.InvokeAsync<MailRead>("getEmailData");
-
-		//	// Log subject for debugging
-		//	Console.WriteLine("Subject C#: ");
-		//	Console.WriteLine(mailreaditem?.Subject);
-
-		//	return mailreaditem;
-		//}
 		private async Task<CountEmail?> Count()
 		{
 			// Call JavaScript function to get email data
