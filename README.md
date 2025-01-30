@@ -18,12 +18,11 @@ description: 'Guide to using an Outlook add-in that counts the number of emails 
 # Outlook Email Count Add-In - User Guide
 
 ## Overview
-This guide provides step-by-step instructions on how to use the **Outlook Email Count Add-In**, which counts the number of emails you have received on the current day. The add-in adds a button to your Outlook interface, allowing you to easily track your email count.
+This guide provides step-by-step instructions on how to use the **Outlook Email Count Add-In**, which counts the number of emails you have received on the current day and the number of unread emails in mailbox. The add-in adds a button to your Outlook interface, allowing you to easily track your email count.
 
 ### Key Features:
 - Count emails received on the current day.
 - Display email count within the Outlook interface.
-- Integrate with Microsoft Graph API or Outlook REST API to fetch email data.
 
 ## Prerequisites
 
@@ -33,25 +32,25 @@ This guide provides step-by-step instructions on how to use the **Outlook Email 
   ### Technical Requirements
 - **Programming Language**: C# and Blazor
 - **Development Environment**: Visual Studio.
-- **Outlook API**: Utilize the Outlook REST API or Microsoft Graph API to access email data.
+- **Outlook API**: Outlook REST API and EWS Requests.
 
 To get started, you will need to add the plugin to Outlook. Follow the instructions for the appropriate version below.
 
 ## Run the sample
 
-1. Download or clone the [Office Add-ins samples repository](https://github.com/OfficeDev/Office-Add-in-samples).
-2. Open Visual Studio 2022 and open the **Office-Add-in-samples\Samples\blazor-add-in\outlook-blazor-add-in\outlook-blazor-add-in.sln** solution.
+1. Download or clone the (https://github.com/WaldoN22/Analyte-Add-In.git)).
+2. Open Visual Studio 2022 and open the **outlook-blazor-add-in.sln**.
 3. In **Solution Explorer** select the **outlook-blazor-sideloader** project. Then display the project properties (F4).
 4. In the **Properties** window, set the **Start Action** to **Office Desktop Client**.
    ![Start Action](./images/Setup.png)
    
-5. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this sample.
+5. In the **Properties** window, set the **Email Address** to the email address of the account you want to use with this add-in and also switch **Use multi-factor auth** to **True**.
    In case this was not set before running you might also see this dialog:
    ![Start Action](./images/Connect.png)
 6. To start the solution, choose **Debug** > **Start Debugging** or press **F5**.
 7. When Outlook opens, choose **Home** > **Show Taskpane**.
 
-## How to Add the Add-In to Outlook
+## How to Manually Add the Add-In to Outlook
 
 ### For Outlook Desktop (Windows):
 1. **Open Outlook**: Launch the Outlook application on your computer.
@@ -136,31 +135,14 @@ This project contains the manifest files for deploying and sideloading the Offic
 ### Example Folder Structure:
 ./manifest.json ./src/taskpane/taskpane.html ./src/taskpane/taskpane.css ./src/taskpane/taskpane.js
 
-
-
-## Adding the Add-In Manually
-
-### Step 1: Sideload the Add-In
-If you're developing or testing the add-in locally, you can sideload it by following these steps:
-
-1. **Download or Clone the Repository**: Clone the repository from GitHub and open it in Visual Studio.
-2. **Set Start Action**:
-   - In **Solution Explorer**, select the **outlook-email-count-sideloader** project.
-   - Set the **Start Action** to **Office Desktop Client**.
-3. **Set Email Address**:
-   - In the **Properties** window, set the email address for the account you want to use.
-4. **Debug and Start**:
-   - Press **F5** to start debugging, and Outlook will open with the add-in ready to use.
-5. **Show Task Pane**: In Outlook, go to the **Home** tab and select **Show Taskpane** to view the email count.
-
 ### Troubleshooting
-If you encounter any issues:
+Here is a list of possible problems and how one can fix them:
 1. **Ensure Task Pane is Enabled**: Go to **File > Options > Add-ins** in Outlook and enable the add-in if it's disabled.
 2. **Clear Cache**: Close Outlook and run the following command in Command Prompt (as Administrator) to clear the cache:
    ```powershell
    taskkill /IM outlook.exe /F
    ipconfig /flushdns
-
+3. If you encounter issues running this solution in the latest version of Outlook, try running it without the debugger.
 
 **Additional Resources**
 
