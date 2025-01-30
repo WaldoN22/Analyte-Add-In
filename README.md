@@ -162,7 +162,7 @@ If you encounter any issues:
    ipconfig /flushdns
 
 
-Additional Resources
+**Additional Resources**
 
 1. https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/outlook-blazor-add-in
 2. https://youtu.be/pabal0sqzrM?si=y60j0D1WuQ1uZTzx
