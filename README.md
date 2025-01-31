@@ -161,11 +161,7 @@ More Troubleshooting on this issue:
    ipconfig /flushdns
 3. If you encounter issues running this solution in the latest version of Outlook, try running it without the debugger.
 
----
-
-If the issue persists, refer to the full documentation or check the error logs for more details.
-
----
+**If the issue persists, refer to the full documentation or check the error logs for more details.**
 
 **Additional Resources**
 
