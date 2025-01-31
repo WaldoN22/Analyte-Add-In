@@ -136,13 +136,36 @@ This project contains the manifest files for deploying and sideloading the Offic
 ./manifest.json ./src/taskpane/taskpane.html ./src/taskpane/taskpane.css ./src/taskpane/taskpane.js
 
 ### Troubleshooting
-Here is a list of possible problems and how one can fix them:
+
+# MessageCount Add-In - Troubleshooting Guide
+
+## Issue: Add-In Not Displaying in Task Pane  
+
+If the add-in does not appear in the task pane, follow these steps:
+
+### 1. Disable "Just My Code" in Visual Studio  
+Visual Studio may hide system libraries, preventing you from debugging properly.  
+
+       #### **Steps to Disable "Just My Code"**
+        1. Open **Visual Studio**.  
+        2. Navigate to **Tools** → **Options**.  
+        3. Go to **Debugging** → **General**.  
+        4. Uncheck **Enable Just My Code**.  
+        5. Restart debugging.
+
+More Troubleshooting on this issue:
 1. **Ensure Task Pane is Enabled**: Go to **File > Options > Add-ins** in Outlook and enable the add-in if it's disabled.
 2. **Clear Cache**: Close Outlook and run the following command in Command Prompt (as Administrator) to clear the cache:
    ```powershell
    taskkill /IM outlook.exe /F
    ipconfig /flushdns
 3. If you encounter issues running this solution in the latest version of Outlook, try running it without the debugger.
+
+---
+
+If the issue persists, refer to the full documentation or check the error logs for more details.
+
+---
 
 **Additional Resources**
 
@@ -151,3 +174,8 @@ Here is a list of possible problems and how one can fix them:
 3. https://learn.microsoft.com/en-gb/office/dev/add-ins/overview/explore-with-script-lab
 4. https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart-vs
 5. https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-code-samples
+
+   **For additional support, visit the project documentation or contact the development team.**
+   
+**Analyte Consulting**
+**@Copyright.**
