@@ -163,6 +163,31 @@ More Troubleshooting on this issue:
 
 **If the issue persists, refer to the full documentation or check the error logs for more details.**
 
+# Debugging Your Outlook Add-in  
+
+## Overview  
+This guide provides step-by-step instructions on how to debug an Outlook add-in in the new Outlook for Windows desktop client using Microsoft Edge DevTools.  
+
+## Steps to Debug  
+
+### 1. Close Outlook  
+If the new Outlook for Windows client is already open, close it before proceeding.  
+
+### 2. Launch Outlook with DevTools  
+Open a command prompt and run the following command to start Outlook along with Microsoft Edge DevTools:  
+
+```sh
+olk.exe --devtools
+
+**Tip:** After running the command, the DevTools window will remain open, allowing you to debug the add-in’s task pane as you open and close it. However, if you close the DevTools window, you must first close Outlook before running the command again.  
+
+### 3. Sideload the Add-in  
+To test your add-in, sideload it into Outlook on the web.  
+
+### 4. Debug Using Microsoft Edge DevTools  
+Utilize Microsoft Edge DevTools to inspect, troubleshoot, and debug your add-in's task pane.  
+
+
 **Additional Resources**
 
 1. https://github.com/OfficeDev/Office-Add-in-samples/tree/main/Samples/blazor-add-in/outlook-blazor-add-in
