@@ -175,7 +175,10 @@ If the issue persists, refer to the full documentation or check the error logs f
 4. https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/outlook-quickstart-vs
 5. https://learn.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-code-samples
 
+
    **For additional support, visit the project documentation or contact the development team.**
-   
+ ---
 **Analyte Consulting**
 **@Copyright.**
+
+---
