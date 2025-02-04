@@ -179,6 +179,8 @@ Open a command prompt and run the following command to start Outlook along with 
 ```sh
 olk.exe --devtools
 
+
+
 **Tip:** After running the command, the DevTools window will remain open, allowing you to debug the add-in’s task pane as you open and close it. However, if you close the DevTools window, you must first close Outlook before running the command again.  
 
 ### 3. Sideload the Add-in  
